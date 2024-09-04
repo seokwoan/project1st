@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>MiniGames</title>
+
+</head>
+
+
+<body>
+
+<div id="container">
+   <div th:fragment="header" id="header">
+    <a>MiniGames</a>
+       <div id="nav">
+           <ul class="navbar-menu">
+            <li><a href="">Omok</a></li>
+            <li><a href="">BlackJack</a></li>
+            <li><a href="">HIT</a></li>
+            <li><a href="">Number</a></li>
+           </ul>
+       </div>
+   </div>
+
+    <div th:fragment="main" id="main">
+        <div id="contents">
+            <ul class="contents-box">
+                <li class="">
+                    <img src="" alt="">
+                    <a href=""></a>
+                </li>
+
+                <li class="">
+                    <img src="" alt="">
+                    <a href=""></a>
+                </li>
+
+                <li class="">
+                    <img src="" alt="">
+                    <a href=""></a>
+                </li>
+
+                <li class="">
+                    <img src="" alt="">
+                    <a href=""></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div th:fragment="footer" id="footer">
+
+    </div>
+
+
+
+
+
+</div>
+
+
+</body>
+</html>
