@@ -2,9 +2,16 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
   <div th:fragment="header" id="header">
-    <br>
-    <h1>HEADER</h1>
-    <br>
+    <a>MiniGames</a>
+    <div id="nav">
+      <ul class="navbar-menu">
+        <li><a href="/game/omok">Omok</a></li>
+        <li><a href="">BlackJack</a></li>
+        <li><a href="">HIT</a></li>
+        <li><a href="">Number</a></li>
+      </ul>
+    </div>
+
   </div>
 
 </html>
