@@ -10,17 +10,15 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
-@Table( name = "omok" )
-public class OmokEntity {
+@Table( name = "Number" )
+public class NumberEntity {
 
   @Id
   @GeneratedValue( strategy = GenerationType.AUTO )
-  @Column( name = "omok_id" )
+  @Column( name = "Number_id" )
   private Long id;
 
-  private Long win;
-
-  private Long lose;
+  private Long score;
 
   @ManyToOne
   @JoinColumn( name = "member_id" )
@@ -30,6 +28,5 @@ public class OmokEntity {
   private GameType gameType;
 
   private LocalDateTime date;
-
 
 }

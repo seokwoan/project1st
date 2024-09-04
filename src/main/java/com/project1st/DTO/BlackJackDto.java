@@ -21,4 +21,7 @@ public class BlackJackDto {
   private GameType gameType;
 
   private LocalDateTime date;
+
+
+
 }

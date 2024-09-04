@@ -10,12 +10,12 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
-@Table( name = "omok" )
-public class OmokEntity {
+@Table( name = "blackjack")
+public class BlackJackEntity {
 
   @Id
   @GeneratedValue( strategy = GenerationType.AUTO )
-  @Column( name = "omok_id" )
+  @Column( name = "blackjack_id" )
   private Long id;
 
   private Long win;
@@ -30,6 +30,5 @@ public class OmokEntity {
   private GameType gameType;
 
   private LocalDateTime date;
-
 
 }
