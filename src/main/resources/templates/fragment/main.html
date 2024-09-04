@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+<head>
+
+  <meta charset="UTF-8">
+
+  <title layout:fragment="title">Title</title>
+
+  <link rel="stylesheet" href="/css/init.css">
+
+  <script src="/js/init.js"></script>
+
+  <th:block layout:fragment="css"></th:block>
+
+  <th:block layout:fragment="script"></th:block>
+
+</head>
+
+<body>
+
+  <div id="wrap">
+    <th:block th:replace="fragment/header :: header"></th:block>
+
+    <th:block layout:fragment="main"></th:block>
+
+    <th:bloc th:replace="fragment/footer :: footer"></th:bloc>
+
+  </div>
+
+</body>
+
+</html>
