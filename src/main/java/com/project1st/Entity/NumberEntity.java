@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Table( name = "Number" )
-public class NumberEntity {
+public class NumberEntity extends PlayDate {
 
   @Id
   @GeneratedValue( strategy = GenerationType.AUTO )
@@ -27,9 +27,5 @@ public class NumberEntity {
 
   @Enumerated( EnumType.STRING )
   private GameType gameType;
-
-  @CreatedDate
-  @Column( updatable = false )
-  private LocalDateTime date;
 
 }

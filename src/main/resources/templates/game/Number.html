@@ -7,9 +7,7 @@
 
     <title layout:fragment="title">Title</title>
 
-    <th:block layout:fragment="css">
-        <link rel="stylesheet" href="/css/Game/Number.css"/>
-    </th:block>
+    <th:block layout:fragment="css"></th:block>
 
     <th:block layout:fragment="script"></th:block>
 
@@ -17,7 +15,30 @@
 
 <div layout:fragment="main" id="main">
 
-    <h1> 숫자 맞추기 </h1>
+    <div id="gameWrap">
+        <div id="gameInfo">게임설명!</div>
+
+        <div id="gameBox">
+            <div id="gameField">
+                <div id="inputBox">
+                    <input type="text" name="num1">
+                    <input type="text" name="num2">
+                    <input type="text" name="num3">
+                    <input type="text" name="num4">
+                    <button id="answer">제출</button>
+                </div>
+
+                <div id="scoreBox"></div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
 </div>
 
 </html>

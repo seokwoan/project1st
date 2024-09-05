@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Table( name = "Hit" )
-public class HitEntity {
+public class HitEntity extends PlayDate {
 
   @Id
   @GeneratedValue( strategy = GenerationType.AUTO )
