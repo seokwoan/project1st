@@ -12,6 +12,11 @@ body
 
 ul{ list-style: none}
 
+#header >.title
+{
+    pointer-events: auto;
+}
+
 a
 {
     text-decoration: none;
@@ -41,6 +46,14 @@ a
     font-size: 40px;
 
 }
+
+#nav #subNav
+{
+   position: absolute;
+    top: 10%;
+    right: 10%;
+}
+
 #nav
 {
     display : flex;

@@ -2,13 +2,21 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
   <div th:fragment="header" id="header">
-    <a>MiniGames</a>
+    <a class="title" href="/">MiniGames</a>
     <div id="nav">
+
+      <div id="subNav">
+<!--        sec:authorize="isAnonymous()"-->
+        <div class="signInBox" sec:authorize="isAnonymous()" >
+          <a href="/member/login"><i class="bi bi-door-open"></i></a>
+        </div>
+      </div>
+
       <ul class="navbar-menu">
         <li><a href="/game/omok">Omok</a></li>
-        <li><a href="">BlackJack</a></li>
-        <li><a href="">Hit</a></li>
-        <li><a href="">Number</a></li>
+        <li><a href="/game/BlackJack">BlackJack</a></li>
+        <li><a href="/game/Hit">Hit</a></li>
+        <li><a href="/game/Number">Number</a></li>
       </ul>
     </div>
 
