@@ -7,7 +7,9 @@
 
   <title layout:fragment="title">Title</title>
 
-  <th:block layout:fragment="css"></th:block>
+  <th:block layout:fragment="css">
+    <link rel="stylesheet" href="/css/main.css">
+  </th:block>
 
   <th:block layout:fragment="script"></th:block>
 
@@ -16,25 +18,27 @@
   <div layout:fragment="main" id="main">
     <div id="contents">
       <ul class="contents-box">
-        <li class="">
-          <img src="" alt="">
-          <a href=""></a>
+
+        <li class="game Omok">
+          <img src="/image/Omok2.gif" alt="게임 오목의 썸네일">
+          <a href="">Omok</a>
         </li>
 
-        <li class="">
-          <img src="" alt="">
-          <a href=""></a>
+        <li class="game Blackjack">
+          <img src="/image/BlackJack2.gif" alt="게임 블랙잭의 썸네일">
+          <a href="">Blackjack</a>
         </li>
 
-        <li class="">
-          <img src="" alt="">
-          <a href=""></a>
+        <li class="game Hit">
+          <img src="/image/Hit2.gif" alt="게임 Hit의 썸네일">
+          <a href="">Hit</a>
         </li>
 
-        <li class="">
-          <img src="" alt="">
-          <a href=""></a>
+        <li class="game Number">
+          <img src="/image/Number2.gif" alt="게임 넘버의 썸네일">
+          <a href="">Number</a>
         </li>
+
       </ul>
     </div>
   </div>
