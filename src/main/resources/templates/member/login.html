@@ -17,7 +17,39 @@
 
 <div layout:fragment="main" id="main">
 
-  <h1> login Page</h1>
+  <div id="loginWrap">
+<!-- 로그인 데이터 전송-->
+    <form method="post" action="/member/login">
+      <div class="formData">
+        <div class="formTitle">로그인</div>
+
+<!--아이디 비밀번호 입력-->
+        <div class="inputField">
+          <input type="text" name="userId" id="userId" placeholder="ID">
+        </div>
+
+        <div class="inputField">
+          <input type="text" name="password" id="password" placeholder="PASSWORD">
+        </div>
+
+        <div class="loginBt">
+          <button>입장</button>
+        </div>
+      </div>
+    </form>
+
+<!--아이디 비밀번호 찾기-->
+    <div class="forget">
+      <a href="/member/findId">아이디 찾기</a>
+      <a href="/member/findPassword">비밀번호 찾기</a>
+    </div>
+
+<!--회원가입-->
+    <div class="joinLink">
+      <a href="/member/join">회원가입</a>
+    </div>
+
+  </div>
 </div>
 
 </html>
