@@ -25,4 +25,5 @@ public class MemberEntity {
   private String nickName;
 
   private String email;
+
 }

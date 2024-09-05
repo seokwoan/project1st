@@ -3,6 +3,7 @@ package com.project1st.Entity;
 import com.project1st.Constant.GameType;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -27,6 +28,8 @@ public class NumberEntity {
   @Enumerated( EnumType.STRING )
   private GameType gameType;
 
+  @CreatedDate
+  @Column( updatable = false )
   private LocalDateTime date;
 
 }
