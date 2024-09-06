@@ -3,41 +3,45 @@
       xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragment/main}">
 <head>
 
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-    <title layout:fragment="title">Title</title>
+  <title layout:fragment="title">Title</title>
 
-    <th:block layout:fragment="css"></th:block>
+  <th:block layout:fragment="css">
+    <link rel="stylesheet" href="/css/Game/number.css">
+  </th:block>
 
-    <th:block layout:fragment="script"></th:block>
+  <th:block layout:fragment="script"></th:block>
 
 </head>
 
 <div layout:fragment="main" id="main">
 
-    <div id="gameWrap">
-        <div id="gameInfo">게임설명!</div>
+  <div id="gameWrap">
+    <div id="gameInfo">게임설명!</div>
 
-        <div id="gameBox">
-            <div id="gameField">
-                <div id="inputBox">
-                    <input type="text" name="num1">
-                    <input type="text" name="num2">
-                    <input type="text" name="num3">
-                    <input type="text" name="num4">
-                    <button id="answer">제출</button>
-                </div>
-
-                <div id="scoreBox"></div>
-
-            </div>
-
+    <div id="gameBox">
+      <div id="gameField">
+        <div id="inputBox">
+          <input type="text" name="num1" class="num">
+          <input type="text" name="num2" class="num">
+          <input type="text" name="num3" class="num">
+          <input type="text" name="num4" class="num">
+          <button id="answer">정답확인</button>
         </div>
+      </div>
+    </div>
 
+    <div id="gameScore">
+      점수
+
+      <div>
+        <button>게임시작</button>
+      </div>
 
     </div>
 
-
+  </div>
 
 </div>
 
