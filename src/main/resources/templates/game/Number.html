@@ -12,7 +12,7 @@
   </th:block>
 
   <th:block layout:fragment="script">
-    <script src="/js/Game/number.js"></script>
+    <script src="/js/Game/Number.js"></script>
   </th:block>
 
 </head>
@@ -25,11 +25,11 @@
     <div id="gameBox">
       <div id="gameField">
         <div id="inputBox">
-          <input type="text" name="num1" class="num">
-          <input type="text" name="num2" class="num">
-          <input type="text" name="num3" class="num">
-          <input type="text" name="num4" class="num">
-          <button id="answer">정답확인</button>
+          <input type="text" maxlength="1" name="num" class="num" required>
+          <input type="text" maxlength="1" name="num" class="num" required>
+          <input type="text" maxlength="1" name="num" class="num" required>
+          <input type="text" maxlength="1" name="num" class="num" required>
+          <button type="button" id="answerButton">정답확인</button>
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@
       점수
 
       <div>
-        <button id="start">게임시작</button>
+        <button type="button" id="startButton">게임시작</button>
       </div>
 
     </div>

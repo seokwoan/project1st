@@ -3,23 +3,69 @@ $(function(){
   var answer = new Array();
   var chance = 0;
 
-  $("#start").on( 'click' , function(){
-    for( var i = 0 ; i < 4 ; i++ ){
-      var j = 0;
-      var same = false;
+  $("input").on( 'keyup' , function(){
+    this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
+  });
+
+  $("#startButton").on( 'click' , function(){
+
+    // 4자리 정답 생성
+
+    while( answer.length != 4 ){
       var num = Math.floor( Math.random() * 9 + 1 );
-      while( j < answer.length ){
-        if( answer[j] == num ){
-          same =true;
-        }
-        j++;
-      }
-      if( same == false ){
-        answer[i] = num;
+      if( answer.indexOf( num ) == -1 ){
+        answer.push( num );
       }
     }
 
+    // 정답확인 버튼에 이벤트 추가
+    $("#answerButton").on( 'click' , function(){]
+    // 정답확인 버튼 누르면
+    // 입력한 숫자 중복 확인 -> 정답과 입력숫자 비교 -> css 변경 -> input name 변경 -> input 태그 추가 -> chance 변수 증가 -> chance 변수 6되면 게임 종료
+    //                      정답 맞추면 chance 별로 점수 추가 -> 게임 종료
+
+      // 입력한 숫자 중복 확인
+      for( var i = 0 ; i < 3 ; i++ ){
+        for( var j = 1 ; j < 4 ; j++ ){
+          if( i < j ){
+            if( parseInt( $("input[name=num]").eq(i).val() ) == parseInt( $("input[name=num]").eq(j).val() ) ){
+              alert( "숫자는 중복되지 않습니다" );
+            }
+          }
+        }
+      }
+
+      // 정답과 입력한 숫자 비교
+      for( var i =0 ; i < 4 ; i++ ){
+        var temp = parseInt( $("input[name=num]").eq(i).val() );
+        console.log(temp);
+        var change = $("input[name=num]").eq(i);
+        change.removeClass("num");
+        change.addClass("noNum");
+
+        for ( var j = 0 ; j < 4 ; j++ ){
+
+          if( answer.indexOf( temp ) != -1 ){
+            change.removeClass("noNum");
+            change.addClass("nearNum");
+          }
+
+          if( i == j ){
+            if( temp == answer[j] ){
+              change.removeClass("nearNum");
+              change.addClass("correctNum");
+            }
+          }
+        }
+      }
+
+    });
+
     console.log( answer );
+
+    // 게임시작시 게임시작 버튼 비활성화
+    $("#startButton").off( 'click' );
+
   });
 
 });
