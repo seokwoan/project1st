@@ -47,13 +47,6 @@ a
 
 }
 
-#nav #subNav
-{
-   position: absolute;
-    top: 10%;
-    right: 10%;
-}
-
 #nav
 {
     display : flex;
@@ -62,6 +55,15 @@ a
     border-top: solid 2px white;
     border-bottom: solid 2px white;
 
+}
+
+#nav #subNav
+{
+    display: flex;
+    gap: 30px;
+    position: absolute;
+    top: 10%;
+    right: 10%;
 }
 
 .navbar-menu

@@ -3,20 +3,24 @@
       xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragment/main}">
 <head>
 
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-  <title layout:fragment="title">Title</title>
+    <title layout:fragment="title">Title</title>
 
-  <th:block layout:fragment="css">
+    <th:block layout:fragment="css">
+        <link rel="stylesheet" href="/css/MyPage/MyPage.css">
+    </th:block>
 
-  </th:block>
+    <th:block layout:fragment="script">
 
-  <th:block layout:fragment="script"></th:block>
+    </th:block>
 
 </head>
 
 <div layout:fragment="main" id="main">
 
+
+    <h1> 내 정보!</h1>
 </div>
 
 </html>
