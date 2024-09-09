@@ -19,8 +19,23 @@
 
 <div layout:fragment="main" id="main">
 
+<section id="myPage">
 
-    <h1> 내 정보!</h1>
+    <ul class="sideBar">
+        <h1>마이페이지</h1>
+        <li class="menu member"><a href="">회원 정보</a></li>
+        <li class="menu gameRecord">
+            <a href="">게임 전적</a>
+        <ul class="gameList">
+            <li class="game"><a href="/MyPage/Point-Omok">Omok</a></li>
+            <li class="game"><a href="/MyPage/Point-BlackJack">BlackJack</a></li>
+            <li class="game"><a href="/MyPage/Point-Hit">Hit</a></li>
+            <li class="game"><a href="/MyPage/Point-Number">Number</a></li>
+        </ul>
+        </li>
+    </ul>
+</section>
+
 </div>
 
 </html>

@@ -5,7 +5,37 @@
     box-sizing: border-box;
 }
 
+#myPage
+{
+    width: 250px;
+    height: 400px;
+    text-align: center;
+    margin-top: 30px;
+}
+
 h1
 {
     color: white;
 }
+
+.menu
+{
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.gameList
+{
+    margin-top: 10px;
+}
+
+.gameList .game
+{
+    margin-top: 15px;
+}
+
+.gameList .game a:hover
+{
+    color: chartreuse;
+}
+

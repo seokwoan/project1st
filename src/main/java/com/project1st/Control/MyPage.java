@@ -18,6 +18,38 @@ public class MyPage {
         return "MyPage/MyPage";
     }
 
+    // 게임전적 오목페이지 요청
+    @GetMapping("/Point-Omok")
+    public String PointOmok(Model model) {
+        return "/MyPage/GameRecord/Point-Omok";
+    }
+
+    // 게임전적 블랙잭 요청
+    @GetMapping("/Point-BlackJack")
+    public String PointBlackJack(Model model) {
+        return "/MyPage/GameRecord/Point-BlackJack";
+    }
+
+    // 게임전적 히트 요청
+    @GetMapping("/Point-Hit")
+    public String PointHit(Model model) {
+        return "/MyPage/GameRecord/Point-Hit";
+    }
+
+    // 게임전적 넘버 요청
+    @GetMapping("/Point-Number")
+    public String PointNumber(Model model) {
+        return "/MyPage/GameRecord/Point-Number";
+    }
+
+
+
+
+
+
+
+
+
 
 
 
