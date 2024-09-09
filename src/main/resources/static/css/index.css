@@ -57,6 +57,13 @@ a
 
 }
 
+#myPage
+{
+    position: fixed;
+    top: 20%;
+
+}
+
 #nav #subNav
 {
     display: flex;

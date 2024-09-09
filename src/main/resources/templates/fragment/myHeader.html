@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+  <div th:fragment="header" id="header">
+    <a class="title" href="/">MiniGames</a>
+    <div id="nav">
+
+      <div id="subNav">
+<!--        sec:authorize="isAnonymous()"-->
+        <div class="signInBox" sec:authorize="isAnonymous()" >
+          <a href="/member/login"><i class="bi bi-door-open"></i></a>
+        </div>
+          <div class="myPage" >
+              <a href="/MyPage/MyPage"><i class="bi bi-person-square"></i></a>
+          </div>
+
+      </div>
+
+      <ul class="navbar-menu">
+        <li><a href="/game/omok">Omok</a></li>
+        <li><a href="/game/BlackJack">BlackJack</a></li>
+        <li><a href="/game/Hit">Hit</a></li>
+        <li><a href="/game/Number">Number</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div th:fragment="myInfo" id="myInfo">
+      <section id="myPage">
+          <ul class="sideBar">
+              <h1>마이페이지</h1>
+              <li class="menu member"><a href="">회원 정보</a></li>
+              <li class="menu gameRecord">
+                  <a href="">게임 전적</a>
+                  <ul class="gameList">
+                      <li class="game"><a href="/MyPage/Point-Omok">Omok</a></li>
+                      <li class="game"><a href="/MyPage/Point-BlackJack">BlackJack</a></li>
+                      <li class="game"><a href="/MyPage/Point-Hit">Hit</a></li>
+                      <li class="game"><a href="/MyPage/Point-Number">Number</a></li>
+                  </ul>
+              </li>
+          </ul>
+      </section>
+  </div>
+
+
+</html>
