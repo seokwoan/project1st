@@ -3,7 +3,7 @@
   display : flex;
   justify-content : space-around;
   margin : 30px auto;
-  height : 800px;
+  height : 900px;
   position : relative;
   z-index : 100;
 }
@@ -31,14 +31,14 @@
   height : 100%;
 }
 
-#gameBox #gameField #inputBox{
+#gameBox #gameField .inputBox{
   display : flex;
   justify-content : space-around;
   align-items : center;
   padding : 15px;
 }
 
-#gameBox #gameField #inputBox .num{
+#gameBox #gameField .inputBox .num{
   width : 80px;
   height : 80px;
   border : 1px solid #aaa;
@@ -47,7 +47,7 @@
   font-size : 30px;
 }
 
-#gameBox #gameField #inputBox #answerButton{
+#gameBox #gameField .inputBox #answerButton{
    width : 80px;
    height : 80px;
    border : 1px solid #aaa;
@@ -56,6 +56,12 @@
    font-size : 15px;
  }
 
+#gameBox #gameField .resultField{
+ display : flex;
+ justify-content : space-around;
+ align-items : center;
+ padding : 15px;
+}
 
 #gameScore{
   background-color : orange;
@@ -65,7 +71,7 @@
   border-radius : 20px;
 }
 
-.correctNum{
+#gameBox #gameField .resultField .correctNum{
   width : 80px;
   height : 80px;
   border : 1px solid #aaa;
@@ -75,22 +81,29 @@
   background : blue;
 }
 
-.nearNum{
+#gameBox #gameField .resultField .nearNum{
   width : 80px;
   height : 80px;
   border : 1px solid #aaa;
   border-radius : 20px;
   text-align : center;
   font-size : 30px;
-  background = green;
+  background : green;
 }
 
-.noNum{
+#gameBox #gameField .resultField .noNum{
   width : 80px;
   height : 80px;
   border : 1px solid #aaa;
   border-radius : 20px;
   text-align : center;
   font-size : 30px;
-  background = red;
+  background : red;
+}
+
+.emptyBox{
+  width : 80px;
+  height : 80px;
+  text-align : center;
+  font-size : 30px;
 }

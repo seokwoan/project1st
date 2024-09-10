@@ -7,68 +7,102 @@ $(function(){
     this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
   });
 
-  $("#startButton").on( 'click' , function(){
+  $("#startButton").on( 'click' , gameStart( answer , chance ) );
 
-    // 4자리 정답 생성
+});
 
-    while( answer.length != 4 ){
-      var num = Math.floor( Math.random() * 9 + 1 );
-      if( answer.indexOf( num ) == -1 ){
-        answer.push( num );
+
+function gameStart( answer , chance ){
+
+  // 시작버튼 비활성화
+  $("#startButton").off( 'click' );
+
+  // 이전 사용한 결과값 지우기
+  $(".result").empty();
+  for( var i = 0 ; i < 4 ; i++ ){
+    $("input[name=num]").eq(i).val("");
+  }
+
+
+  // answer , chance 초기화
+  answer = [];
+  chance = 0;
+
+  // 4자리 정답 생성
+  while( answer.length != 4 ){
+    var num = Math.floor( Math.random() * 9 + 1 );
+    if( answer.indexOf( num ) == -1 ){
+      answer.push( num );
+    }
+  }
+  console.log( answer );
+
+  // 정답확인 버튼에 이벤트 추가
+  $("#answerButton").on( 'click' , function(){
+  // 정답확인 버튼 누르면
+  // 입력한 숫자 중복 확인 -> 정답과 입력숫자 비교 -> div 추가 -> input value 가지고 비교한 결과로 div 배경 변경 -> chance 변수 증가 -> chance 변수 6되면 게임 종료
+  //                      정답 맞추면 chance 별로 점수 추가 -> 게임 종료
+
+    // 입력한 숫자 중복 확인
+    for( var i = 0 ; i < 3 ; i++ ){
+      for( var j = 1 ; j < 4 ; j++ ){
+        if( i < j ){
+          if( parseInt( $("input[name=num]").eq(i).val() ) == parseInt( $("input[name=num]").eq(j).val() ) ){
+            alert( "숫자는 중복되지 않습니다" );
+            return;
+          }
+        }
       }
     }
 
-    // 정답확인 버튼에 이벤트 추가
-    $("#answerButton").on( 'click' , function(){]
-    // 정답확인 버튼 누르면
-    // 입력한 숫자 중복 확인 -> 정답과 입력숫자 비교 -> css 변경 -> input name 변경 -> input 태그 추가 -> chance 변수 증가 -> chance 변수 6되면 게임 종료
-    //                      정답 맞추면 chance 별로 점수 추가 -> 게임 종료
+    // resultField div 추가
+    $(".result").append( '<div class="resultField"></div>' );
+    // resultField div 하위에 결과를 표시할 div 생성
+    for( var i = 0 ; i < 4 ; i++ ){
+      $(".resultField").eq(chance).append( '<div class="resultBox"></div>' );
+    }
+    // css 맞추기 위한 빈 박스
+    $(".resultField").eq(chance).append( '<div class="emptyBox"></div>' );
 
-      // 입력한 숫자 중복 확인
-      for( var i = 0 ; i < 3 ; i++ ){
-        for( var j = 1 ; j < 4 ; j++ ){
-          if( i < j ){
-            if( parseInt( $("input[name=num]").eq(i).val() ) == parseInt( $("input[name=num]").eq(j).val() ) ){
-              alert( "숫자는 중복되지 않습니다" );
-            }
+
+
+    for( var i =0 ; i < 4 ; i++ ){
+      var temp = parseInt( $("input[name=num]").eq(i).val() );
+      console.log(temp);
+      var change = $(".resultBox").eq( 4 * chance + i );
+
+      // input 값 div 넣기
+      change.text( temp );
+
+      change.addClass("noNum");
+
+
+      if( answer.indexOf( temp ) != -1 ){
+        change.removeClass("noNum");
+        change.addClass("nearNum");
+      }
+
+      for( var j = 0 ; j < 4 ; j++ ){
+        if( i == j ){
+          if( temp == answer[j] ){
+            change.removeClass("nearNum");
+            change.addClass("correctNum");
           }
         }
       }
+    }
 
-      // 정답과 입력한 숫자 비교
-      for( var i =0 ; i < 4 ; i++ ){
-        var temp = parseInt( $("input[name=num]").eq(i).val() );
-        console.log(temp);
-        var change = $("input[name=num]").eq(i);
-        change.removeClass("num");
-        change.addClass("noNum");
-
-        for ( var j = 0 ; j < 4 ; j++ ){
-
-          if( answer.indexOf( temp ) != -1 ){
-            change.removeClass("noNum");
-            change.addClass("nearNum");
-          }
-
-          if( i == j ){
-            if( temp == answer[j] ){
-              change.removeClass("nearNum");
-              change.addClass("correctNum");
-            }
-          }
-        }
-      }
-
-    });
-
-    console.log( answer );
-
-    // 게임시작시 게임시작 버튼 비활성화
-    $("#startButton").off( 'click' );
-
+    // chance 증가 , 6이면 게임 종료
+    chance++;
+    if( chance == 6 ){
+      alert( "게임 종료! 모든 기회를 사용했어요" );
+      $("#answerButton").off( 'click' );
+      $("#startButton").on( 'click' , gameStart() );
+    }
   });
+}
 
-});
+
 
 
 /*
