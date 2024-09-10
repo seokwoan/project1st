@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Getter
 @Setter
@@ -16,14 +17,18 @@ public class MemberDto {
   @NotBlank( message = "아이디를 입력해 주세요" )
   private String userId;
 
+  @Size(min=4 , max=12, message="비밀번호는 4~12자리 입니다.")
   private String password;
 
   @NotBlank( message = "닉네임은 필수 입니다" )
   private String nickName;
 
+  @NotBlank(message = "이메일을 작성해주세요")
   private String email;
 
 
+
+  // DTO -> Entity
   public MemberEntity createEntity( PasswordEncoder passwordEncoder ){
     MemberEntity memberEntity = new MemberEntity();
 
@@ -37,6 +42,7 @@ public class MemberDto {
     return memberEntity;
   }
 
+  // Entity -> DTO
   public static MemberDto of( MemberEntity memberEntity ){
     MemberDto memberDto = new MemberDto();
 

@@ -5,7 +5,19 @@
     box-sizing: border-box;
 }
 
-h1
+#point-Box
+{
+    position: relative;
+    top: 50px;
+    margin: 0 auto;
+    border: 2px solid white;
+    width: 500px;
+    height: 500px;
+}
+
+h2
 {
     color: white;
 }
+
+
