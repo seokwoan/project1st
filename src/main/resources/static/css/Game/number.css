@@ -10,10 +10,23 @@
 
 #gameInfo{
   background-color : lightgreen;
-  width : 15%;
+  width : 18%;
   height: 50%;
   border : none;
   border-radius : 20px;
+}
+
+#gameInfo h2{
+  text-align : center;
+}
+
+#gameInfo .infoBox{
+  padding : 10px;
+}
+
+#gameInfo .infoBox p{
+  padding : 2px 0;
+  font-weight : 700;
 }
 
 #gameBox{
@@ -48,27 +61,47 @@
 }
 
 #gameBox #gameField .inputBox #answerButton{
-   width : 80px;
-   height : 80px;
-   border : 1px solid #aaa;
-   border-radius : 20px;
-   text-align : center;
-   font-size : 15px;
- }
+  width : 80px;
+  height : 80px;
+  border : 1px solid #aaa;
+  border-radius : 20px;
+  text-align : center;
+  font-size : 15px;
+}
 
 #gameBox #gameField .resultField{
- display : flex;
- justify-content : space-around;
- align-items : center;
- padding : 15px;
+  display : flex;
+  justify-content : space-around;
+  align-items : center;
+  padding : 15px;
 }
 
 #gameScore{
   background-color : orange;
-  width : 15%;
+  width : 18%;
   height : 50%;
   border : none;
   border-radius : 20px;
+}
+
+#gameScore #scoreBox h2{
+  text-align : center;
+}
+
+#gameScore #scoreBox span{
+  display : inline-block;
+  width : 100%;
+  height : 50px;
+  text-align : center;
+  font-size : 25px;
+  font-weight : 800;
+  border : 3px solid #eee;
+  border-radius : 10px;
+  color : white;
+}
+
+#startButton{
+
 }
 
 #gameBox #gameField .resultField .correctNum{
@@ -79,6 +112,7 @@
   text-align : center;
   font-size : 30px;
   background : blue;
+  line-height : 75px;
 }
 
 #gameBox #gameField .resultField .nearNum{
@@ -89,6 +123,7 @@
   text-align : center;
   font-size : 30px;
   background : green;
+  line-height : 75px;
 }
 
 #gameBox #gameField .resultField .noNum{
@@ -99,6 +134,7 @@
   text-align : center;
   font-size : 30px;
   background : red;
+  line-height : 75px;
 }
 
 .emptyBox{

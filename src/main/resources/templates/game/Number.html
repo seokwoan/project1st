@@ -19,7 +19,23 @@
 <div layout:fragment="main" id="main">
 
   <div id="gameWrap">
-    <div id="gameInfo">게임설명!</div>
+    <div id="gameInfo">
+      <h2>게임설명!</h2>
+
+      <div class="infoBox">
+        <p>1. 4자리 숫자를 맞춰야 합니다</p>
+        <p>2. 중복되는 숫자는 없습니다</p>
+        <p>3. 입력한 숫자와 자리가 일치하면 파란색!</p>
+        <p>4. 입력한 숫자가 다른 자리에 있으면 초록색!</p>
+        <p>5. 입력한 숫자가 없으면 빨간색!</p>
+        <p>6. 파란색은 500점, 초록색은 300점</p>
+        <p>7. 정답을 맞추면 추가점수</p>
+        <p>8. 첫번째에 정답을 맞추면 만점!</p>
+        <p>9. 이후엔 2000점씩 감소</p>
+        <h2>기회는 총 6번</h2>
+      </div>
+
+    </div>
 
     <div id="gameBox">
       <div id="gameField">
@@ -35,10 +51,13 @@
     </div>
 
     <div id="gameScore">
-      점수
+      <div id="scoreBox">
+        <h2>점수</h2>
+        <span id="score"></span>
+      </div>
 
       <div>
-        <button type="button" id="startButton">게임시작</button>
+        <button id="startButton">게임시작</button>
       </div>
 
     </div>

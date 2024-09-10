@@ -1,18 +1,26 @@
 $(function(){
 
-  var answer = new Array();
-  var chance = 0;
+  var answer = new Array(); // 정답이 담길 배열
+  var chance = 0; // 정답 확인 횟수
+  var totalChance = 6; // 정답확인 기회
+  var score = 0; // 점수
+  var answerCount = 0; // 자리에 맞는 숫자의 수
 
   $("input").on( 'keyup' , function(){
     this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
   });
 
-  $("#startButton").on( 'click' , gameStart( answer , chance ) );
+  $("#startButton").on( 'click' , function(){
+    gameStart( answer , chance , totalChance , answerCount);
+  });
 
 });
 
 
-function gameStart( answer , chance ){
+function gameStart( answer , chance , totalChance ){
+
+  // 점수 초기화
+  $("#score").text("");
 
   // 시작버튼 비활성화
   $("#startButton").off( 'click' );
@@ -22,11 +30,13 @@ function gameStart( answer , chance ){
   for( var i = 0 ; i < 4 ; i++ ){
     $("input[name=num]").eq(i).val("");
   }
+  $("input[name=score]").eq(i).val("");
 
 
-  // answer , chance 초기화
+  // answer , chance , score 초기화
   answer = [];
   chance = 0;
+  score = 0;
 
   // 4자리 정답 생성
   while( answer.length != 4 ){
@@ -65,11 +75,16 @@ function gameStart( answer , chance ){
     $(".resultField").eq(chance).append( '<div class="emptyBox"></div>' );
 
 
+    // chance 증가
+    chance++;
+
+    // 초기화
+    answerCount = 0;
 
     for( var i =0 ; i < 4 ; i++ ){
       var temp = parseInt( $("input[name=num]").eq(i).val() );
       console.log(temp);
-      var change = $(".resultBox").eq( 4 * chance + i );
+      var change = $(".resultBox").eq( 4 * ( chance - 1 ) + i );
 
       // input 값 div 넣기
       change.text( temp );
@@ -80,6 +95,14 @@ function gameStart( answer , chance ){
       if( answer.indexOf( temp ) != -1 ){
         change.removeClass("noNum");
         change.addClass("nearNum");
+        // 점수 추가
+        if( i == answer.indexOf( temp ) ){
+          score += 500;
+        }
+        else{
+          score += 300;
+        }
+
       }
 
       for( var j = 0 ; j < 4 ; j++ ){
@@ -87,18 +110,34 @@ function gameStart( answer , chance ){
           if( temp == answer[j] ){
             change.removeClass("nearNum");
             change.addClass("correctNum");
+            answerCount++;
           }
         }
       }
+
+      if( answerCount == 4 ){
+        alert( "정답입니다!");
+        score += ( totalChance - chance ) * 2000;
+        $("#score").text(score);
+        end( answer , chance , totalChance , answerCount );
+      }
     }
 
-    // chance 증가 , 6이면 게임 종료
-    chance++;
-    if( chance == 6 ){
+    // chance 6이면 게임 종료
+    if( chance == totalChance ){
       alert( "게임 종료! 모든 기회를 사용했어요" );
-      $("#answerButton").off( 'click' );
-      $("#startButton").on( 'click' , gameStart() );
+      end( answer , chance , totalChance , answerCount );
     }
+
+    $("#score").text(score);
+
+  });
+}
+
+function end( answer , chance , totalChance , answerCount ){
+  $("#answerButton").off( 'click' );
+  $("#startButton").on( 'click' , function(){
+     gameStart( answer , chance , totalChance , answerCount );
   });
 }
 
