@@ -54,4 +54,14 @@ public class MemberService implements UserDetailsService {
                 .password(memberEntity.getPassword()).build();
 
     }
+
+    // 회원 정보를 조회하여 반환
+    public MemberDto getMemberInfo(String userId) {
+        MemberEntity memberEntity = memberRepository.findByUserId(userId);
+        if (memberEntity == null) {
+            throw new UsernameNotFoundException("해당 아이디의 회원을 찾을 수 없습니다.");
+        }
+        return MemberDto.of(memberEntity);  // MemberEntity -> MemberDto로 변환
+    }
+
 }
