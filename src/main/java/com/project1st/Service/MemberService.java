@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 
 @Service
 @Transactional
@@ -24,7 +25,7 @@ public class MemberService implements UserDetailsService {
     // 회원 가입폼의 내용을 데이터 베이스에 저장
     public void saveMember(@Valid MemberDto memberDto, PasswordEncoder passwordEncoder) {
         MemberEntity memberEntity = memberDto.createEntity(passwordEncoder);
-        // 아이디와 이메일 중복여부
+        memberEntity.setPassword(passwordEncoder.encode(memberDto.getPassword()));  // 비밀번호 암호화
         validUserIdEmail(memberEntity);
         memberRepository.save(memberEntity);
     }
@@ -45,14 +46,15 @@ public class MemberService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         // 로그인시 입력한 아이디로 계정 조회
         MemberEntity memberEntity = memberRepository.findByUserId(username);
-        if(memberEntity == null) {
+        if (memberEntity == null) {
             throw new UsernameNotFoundException(username);
         }
         // 입력한 비밀번호와 조회한 계정 비밀번호 비교를 위해 반환
         return User.builder()
                 .username(memberEntity.getUserId())
-                .password(memberEntity.getPassword()).build();
-
+                .password(memberEntity.getPassword())
+                .authorities(new ArrayList<>())  // 권한 추가
+                .build();
     }
 
     // 회원 정보를 조회하여 반환
