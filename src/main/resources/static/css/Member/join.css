@@ -2,17 +2,16 @@
 /*  join.css  */
 
 #joinWrap{
+    position:relative;
+    padding:100px 0;
     width:700px;
     margin:0 auto;
-    padding:100px 0;
-    position:relative;
 }
 
-
 #joinForm{
-    display:none;
     width:100%;
     padding:50px 100px;
+
 }
 
 #joinForm .inputField{
@@ -50,8 +49,9 @@
     cursor:pointer;
 }
 #joinForm #btn-join{
-    background:#3d435f;
-    color:#fff;
+    background:chartreuse;
+    color:black;
+    font-weight: bold;
     border:0;
     border-radius:50px;
     width:100%;
@@ -64,4 +64,9 @@
 #joinForm .fieldError{
     color:red;
     padding-left:50px;
+}
+
+label
+{
+    color: chartreuse;
 }

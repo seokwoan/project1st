@@ -43,8 +43,9 @@
     padding:10px 0;
 }
 .loginBt button:hover{
-    background:#aaa;
-    color:#fff;
+    background:chartreuse;
+    color: black;
+    cursor: pointer;
 }
 
 .forget{
@@ -53,5 +54,5 @@
     padding:20px 0;
 }
 .joinLink a{
-    color:purple;
+    color:chartreuse;
 }
