@@ -21,11 +21,11 @@ public class NumberEntity extends PlayDate {
 
   private Long score;
 
+  @Enumerated( EnumType.STRING )
+  private GameType gameType;
+
   @ManyToOne
   @JoinColumn( name = "member_id" )
   private MemberEntity memberEntity;
-
-  @Enumerated( EnumType.STRING )
-  private GameType gameType;
 
 }

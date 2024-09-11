@@ -1,5 +1,6 @@
 package com.project1st.Service;
 
+import com.project1st.Constant.GameType;
 import com.project1st.DTO.NumberDto;
 import com.project1st.Entity.MemberEntity;
 import com.project1st.Entity.NumberEntity;
@@ -19,9 +20,9 @@ public class GameService {
 
   public void scoreSave( Long score , String userId) {
     NumberEntity numberEntity = new NumberEntity();
-    MemberEntity memberEntity = memberRepository.findByUserId( userId );
-    numberEntity.setId( memberEntity.getId() );
+    numberEntity.setMemberEntity( memberRepository.findByUserId( userId ) );
     numberEntity.setScore( score );
+    numberEntity.setGameType( GameType.NUMBER );
     numberRepository.save( numberEntity );
   }
 }
