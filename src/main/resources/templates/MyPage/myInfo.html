@@ -5,7 +5,7 @@
 
   <meta charset="UTF-8">
 
-  <title layout:fragment="title">Title</title>
+  <title layout:fragment="title">회원정보 및 수정</title>
 
   <th:block layout:fragment="css">
     <link rel="stylesheet" href="/css/MyPage/myInfo.css">
@@ -18,10 +18,12 @@
 <div layout:fragment="main" id="main">
 
   <div id="memberInfo">
-    <h2 class="title"> 회원 정보 </h2>
+    <h2 class="title"> 회원정보 </h2>
+    <div class="memberInfo-box">
     <p>아이디: <span th:text="${member.userId}"></span></p>
     <p>닉네임: <span th:text="${member.nickName}"></span></p>
     <p>이메일: <span th:text="${member.email}"></span></p>
+    </div>
   </div>
 
 

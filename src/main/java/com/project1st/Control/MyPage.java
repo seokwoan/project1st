@@ -35,6 +35,10 @@ public class MyPage {
     }
 
 
+
+
+
+
     // 게임전적 오목페이지 요청
     @GetMapping("/Point-Omok")
     public String PointOmok(Model model) {
@@ -47,10 +51,10 @@ public class MyPage {
         return "/MyPage/GameRecord/Point-BlackJack";
     }
 
-    // 게임전적 히트 요청
-    @GetMapping("/Point-Hit")
+    // 게임전적 EatAndSurvive 요청
+    @GetMapping("/Point-EatAndSurvive")
     public String PointHit(Model model) {
-        return "/MyPage/GameRecord/Point-Hit";
+        return "Point-EatAndSurvive";
     }
 
     // 게임전적 넘버 요청
@@ -58,9 +62,6 @@ public class MyPage {
     public String PointNumber(Model model) {
         return "/MyPage/GameRecord/Point-Number";
     }
-
-
-
 
 
 }

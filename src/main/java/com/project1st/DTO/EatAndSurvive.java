@@ -1,7 +1,6 @@
 package com.project1st.DTO;
 
 import com.project1st.Constant.GameType;
-import com.project1st.Entity.HitEntity;
 import lombok.Getter;
 import lombok.Setter;
 import org.modelmapper.ModelMapper;
@@ -10,7 +9,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class HitDto {
+public class EatAndSurvive {
 
   private Long id;
 
@@ -24,12 +23,12 @@ public class HitDto {
 
   private static ModelMapper mapper = new ModelMapper();
 
-  public HitEntity createEntity(){
-    return mapper.map( this , HitEntity.class );
+  public com.project1st.Entity.EatAndSurvive createEntity(){
+    return mapper.map( this , com.project1st.Entity.EatAndSurvive.class );
   }
 
-  public static HitDto of( HitEntity hitEntity ){
-    return mapper.map( hitEntity , HitDto.class );
+  public static EatAndSurvive of(com.project1st.Entity.EatAndSurvive eatAndSurvive){
+    return mapper.map(eatAndSurvive, EatAndSurvive.class );
   }
 
 }

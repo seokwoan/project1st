@@ -4,7 +4,6 @@ import com.project1st.DTO.MemberDto;
 import com.project1st.DTO.NumberDto;
 import com.project1st.Service.GameService;
 import com.project1st.Service.MemberService;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,10 +27,10 @@ public class GameControl {
     return "game/omok";
   }
 
-  // Hit 맵핑
-  @GetMapping( "/Hit" )
+  // EatAndSurvive 맵핑
+  @GetMapping( "/EatAndSurvive" )
   public String Hit(){
-    return "game/Hit";
+    return "game/EatAndSurvive";
   }
 
 

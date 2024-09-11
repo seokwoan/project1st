@@ -11,12 +11,12 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
-@Table( name = "Hit" )
-public class HitEntity extends PlayDate {
+@Table( name = "EatAndSurvive" )
+public class EatAndSurvive extends PlayDate {
 
   @Id
   @GeneratedValue( strategy = GenerationType.AUTO )
-  @Column( name = "hit_id" )
+  @Column( name = "EatAndSurvive_id" )
   private Long id;
 
   private Long score;

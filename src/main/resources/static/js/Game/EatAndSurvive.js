@@ -26,7 +26,7 @@ $(document).ready(function() {
         timeSurvived = 0;
         timeLeft = 60;
         $score.text(`점수: ${score}`);
-        $timer.text(timeLeft);
+        $timer.text(`남은시간: ${timeLeft}`);
         gameStarted = false;
 
         initializeBoard(); // 게임 보드 초기화 호출
@@ -52,11 +52,11 @@ $(document).ready(function() {
         $gameContainer.show();
         $gameOverScreen.hide();
 
-        // 게임 시작 시 방향키 이벤트 리스너 추가
-        $(document).on("keydown", directionControl);
-        game = setInterval(draw, speed);
-        levelTimer = setInterval(updateLevel, 1000);
-        gameStarted = true; // 게임 시작 플래그 true로 설정
+        $(document).on("keydown", directionControl);  // 방향키 이벤트 리스너 추가
+
+        game = setInterval(draw, speed);  // 게임 로직 실행
+        levelTimer = setInterval(updateLevel, 1000);  // 매 1초마다 타이머 업데이트
+        gameStarted = true;  // 게임 시작 플래그 설정
     }
 
     // 게임 종료 함수
@@ -91,7 +91,7 @@ $(document).ready(function() {
 
         timeSurvived++;
         timeLeft--;
-        $timer.text(timeLeft);
+        $timer.text(`남은시간: ${timeLeft}`);
 
         if (timeLeft <= 0) {
             timeLeft = 60;
