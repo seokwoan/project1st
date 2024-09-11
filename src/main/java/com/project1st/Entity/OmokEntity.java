@@ -30,9 +30,4 @@ public class OmokEntity extends PlayDate {
   @Enumerated( EnumType.STRING )
   private GameType gameType;
 
-  @CreatedDate
-  @Column( updatable = false )
-  private LocalDateTime date;
-
-
 }

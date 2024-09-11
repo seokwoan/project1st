@@ -28,8 +28,4 @@ public class EatAndSurvive extends PlayDate {
   @Enumerated( EnumType.STRING )
   private GameType gameType;
 
-  @CreatedDate
-  @Column( updatable = false )
-  private LocalDateTime date;
-
 }

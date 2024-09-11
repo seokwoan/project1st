@@ -138,8 +138,32 @@ function end( answer , chance , totalChance , answerCount , score ){
   $("input[name=score]").val(score);
   $("#answerButton").off( 'click' );
   $("#startButton").on( 'click' , function(){
-     gameStart( answer , chance , totalChance , answerCount );
+     gameStart( answer , chance , totalChance , answerCount , score );
   });
+
+  var header = $("meta[name=_csrf_header]").attr("content");
+  var token = $("meta[name=_csrf]").attr("content");
+  var gameScore = parseInt( $("#score").text() );
+  var url = "/game/Number/" + gameScore ;
+
+  $.ajax({
+      url : url,
+      type : "POST",
+      cache : false,
+      beforeSend : function(xhr){
+          xhr.setRequestHeader(header, token);
+      },
+      success : function(result , status){
+          alert("저장 성공");
+      },
+      error : function(jqXHR, status , error){
+          if(jqXHR.status == "200")
+              alert("로그인후 이용해주세요");
+          else
+              alert(jqXHR.responseText);
+      }
+  });
+
 }
 
 
