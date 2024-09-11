@@ -29,7 +29,7 @@ public class GameControl {
 
   // EatAndSurvive 맵핑
   @GetMapping( "/EatAndSurvive" )
-  public String Hit(){
+  public String EatAndSurvive(){
     return "game/EatAndSurvive";
   }
 
