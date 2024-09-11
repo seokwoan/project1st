@@ -11,13 +11,13 @@ $(function(){
   });
 
   $("#startButton").on( 'click' , function(){
-    gameStart( answer , chance , totalChance , answerCount);
+    gameStart( answer , chance , totalChance , answerCount , score );
   });
 
 });
 
 
-function gameStart( answer , chance , totalChance ){
+function gameStart( answer , chance , totalChance , answerCount , score ){
 
   // 점수 초기화
   $("#score").text("");
@@ -119,14 +119,14 @@ function gameStart( answer , chance , totalChance ){
         alert( "정답입니다!");
         score += ( totalChance - chance ) * 2000;
         $("#score").text(score);
-        end( answer , chance , totalChance , answerCount );
+        end( answer , chance , totalChance , answerCount , score );
       }
     }
 
     // chance 6이면 게임 종료
-    if( chance == totalChance ){
+    if( answerCount != 4 && chance == totalChance ){
       alert( "게임 종료! 모든 기회를 사용했어요" );
-      end( answer , chance , totalChance , answerCount );
+      end( answer , chance , totalChance , answerCount , score );
     }
 
     $("#score").text(score);
@@ -134,7 +134,8 @@ function gameStart( answer , chance , totalChance ){
   });
 }
 
-function end( answer , chance , totalChance , answerCount ){
+function end( answer , chance , totalChance , answerCount , score ){
+  $("input[name=score]").val(score);
   $("#answerButton").off( 'click' );
   $("#startButton").on( 'click' , function(){
      gameStart( answer , chance , totalChance , answerCount );

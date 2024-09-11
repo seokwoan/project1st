@@ -12,13 +12,9 @@ import java.time.LocalDateTime;
 @Setter
 public class NumberDto {
 
-  private Long id;
+  private Long Id;
 
-  private Long win;
-
-  private Long lose;
-
-  private String nickName;
+  private Long score;
 
   private GameType gameType;
 

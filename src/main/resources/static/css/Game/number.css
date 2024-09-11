@@ -84,8 +84,13 @@
   border-radius : 20px;
 }
 
+#gameScore #scoreBox{
+  padding : 20px 20px;
+}
+
 #gameScore #scoreBox h2{
   text-align : center;
+  margin-bottom : 10px;
 }
 
 #gameScore #scoreBox span{
@@ -101,7 +106,12 @@
 }
 
 #startButton{
-
+  width : 50%;
+  height : 35px;
+  text-align : center;
+  font-size : 20px;
+  border-radius : 10px;
+  margin-left : 63px;
 }
 
 #gameBox #gameField .resultField .correctNum{

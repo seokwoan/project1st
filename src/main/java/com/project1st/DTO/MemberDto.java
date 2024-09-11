@@ -46,6 +46,7 @@ public class MemberDto {
   public static MemberDto of( MemberEntity memberEntity ){
     MemberDto memberDto = new MemberDto();
 
+    memberDto.setId( memberEntity.getId() );
     memberDto.setUserId( memberEntity.getUserId() );
     memberDto.setNickName( memberEntity.getNickName() );
     memberDto.setEmail( memberEntity.getEmail() );

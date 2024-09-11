@@ -60,6 +60,14 @@
         <button id="startButton">게임시작</button>
       </div>
 
+      <form method="post" action="/game/Number">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+        <input type="text" th:name="id" th:value="${member.id}">
+        <input type="text" name="score">
+        <input type="text" name="gameType" value="OMOK">
+        <button>게임결과저장</button>
+      </form>
+
     </div>
 
   </div>
