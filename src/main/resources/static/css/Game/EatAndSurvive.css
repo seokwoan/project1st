@@ -46,6 +46,19 @@
     border: 3px solid chartreuse;
 }
 
+#gameContainer {
+    display: none;
+    position: relative;
+    top: 80px;
+    margin: 0 auto;
+    width: 600px;
+    height: 600px;
+    background-color: #D7D5C6;
+    border: 10px solid #62625B;
+    border-radius: 20px;
+    z-index: -1;
+}
+
 #gameBoard
 {
     position: relative;
@@ -61,18 +74,20 @@ td {
     width: 20px;
     height: 20px;
     border: 2px solid whitesmoke;
-    background-color: black;
+    background-color: #526D46;
             /*#d2b48c; !* 연한 갈색 *!*/
 }
 
 .snake {
-    background-color: chartreuse;
+    background-color: black;
+    border: 1px solid black;
 }
 .apple {
-    background-color: red;
+    background-color: #FAE477;
+    border: 1px solid #9F7D4B;
 }
 .obstacle {
-    background-color: aqua;
+    background-color: darkred;
 }
 .wall {
     background-color: black;
@@ -86,26 +101,19 @@ td {
     left: 10px;
     font-size: 20px;
     z-index: 10;
-    color: white;
+    color: black;
 
 }
 #score {
     position: absolute;
     top: 10px;
     right: 10px;
-    color: white;
+    color: black;
     font-size: 20px;
     z-index: 10;
 }
 
-#gameContainer {
-    display: none;
-    position: relative;
-    top: 0;
-    margin: 0 auto;
-    width: 600px;
-    height: 600px;
-}
+
 #gameOverScreen {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
@@ -113,7 +121,7 @@ td {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    z-index: 10;
+    z-index: 100;
     position: relative;
     top: -25%;
 }
