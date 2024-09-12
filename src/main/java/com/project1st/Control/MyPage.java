@@ -66,8 +66,8 @@ public class MyPage {
     // 게임전적 넘버 요청
     @GetMapping("/Point-Number")
     public String PointNumber( Model model , Principal principal ) {
-//        List<NumberDto> numberDtoList = myPageService.getHistory( principal.getName() );
-        Page<NumberDto> numberDtos = myPageService.getHistory( principal.getName() );
+        List<NumberDto> numberDtoList = myPageService.getHistory( principal.getName() );
+//        Page<NumberDto> numberDtos = myPageService.getHistory( principal.getName() );
         model.addAttribute( "history" , numberDtoList );
 
         return "/MyPage/GameRecord/Point-Number";
