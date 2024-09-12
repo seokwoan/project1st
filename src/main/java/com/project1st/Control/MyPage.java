@@ -54,7 +54,7 @@ public class MyPage {
     // 게임전적 EatAndSurvive 요청
     @GetMapping("/Point-EatAndSurvive")
     public String PointHit(Model model) {
-        return "Point-EatAndSurvive";
+        return "/MyPage/GameRecord/Point-EatAndSurvive";
     }
 
     // 게임전적 넘버 요청
