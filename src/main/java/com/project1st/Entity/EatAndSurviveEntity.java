@@ -3,16 +3,14 @@ package com.project1st.Entity;
 import com.project1st.Constant.GameType;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @Setter
 @Table( name = "EatAndSurvive" )
-public class EatAndSurvive extends PlayDate {
+public class EatAndSurviveEntity extends PlayDate {
 
   @Id
   @GeneratedValue( strategy = GenerationType.AUTO )
