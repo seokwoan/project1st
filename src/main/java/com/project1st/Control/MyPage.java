@@ -6,6 +6,7 @@ import com.project1st.DTO.NumberDto;
 import com.project1st.Service.MemberService;
 import com.project1st.Service.MyPageService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -65,7 +66,8 @@ public class MyPage {
     // 게임전적 넘버 요청
     @GetMapping("/Point-Number")
     public String PointNumber( Model model , Principal principal ) {
-        List<NumberDto> numberDtoList = myPageService.getHistory( principal.getName() );
+//        List<NumberDto> numberDtoList = myPageService.getHistory( principal.getName() );
+        Page<NumberDto> numberDtos = myPageService.getHistory( principal.getName() );
         model.addAttribute( "history" , numberDtoList );
 
         return "/MyPage/GameRecord/Point-Number";
