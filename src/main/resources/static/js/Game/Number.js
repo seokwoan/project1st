@@ -6,17 +6,19 @@ $(function(){
   var score = 0; // 점수
   var answerCount = 0; // 자리에 맞는 숫자의 수
 
+  // 숫자 제외 문자 입력 막기
   $("input").on( 'keyup' , function(){
     this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
   });
 
+  // 게임시작 버튼 클릭하면 게임시작 함수 호출
   $("#startButton").on( 'click' , function(){
     gameStart( answer , chance , totalChance , answerCount , score );
   });
 
 });
 
-
+// 게임시작 함수
 function gameStart( answer , chance , totalChance , answerCount , score ){
 
   // 점수 초기화
@@ -81,6 +83,7 @@ function gameStart( answer , chance , totalChance , answerCount , score ){
     // 초기화
     answerCount = 0;
 
+    // 인풋태그에서 값 가져오기
     for( var i =0 ; i < 4 ; i++ ){
       var temp = parseInt( $("input[name=num]").eq(i).val() );
       console.log(temp);
@@ -91,7 +94,7 @@ function gameStart( answer , chance , totalChance , answerCount , score ){
 
       change.addClass("noNum");
 
-
+      // 인풋값에 따른 css 추가 및 점수 추
       if( answer.indexOf( temp ) != -1 ){
         change.removeClass("noNum");
         change.addClass("nearNum");
@@ -115,6 +118,7 @@ function gameStart( answer , chance , totalChance , answerCount , score ){
         }
       }
 
+      // 4자리가 전부 맞으면 게임 종료 - 엔드함수 호출
       if( answerCount == 4 ){
         alert( "정답입니다!");
         score += ( totalChance - chance ) * 2000;
@@ -123,7 +127,7 @@ function gameStart( answer , chance , totalChance , answerCount , score ){
       }
     }
 
-    // chance 6이면 게임 종료
+    // chance 6이면 게임 종료 - 엔드함수 호출
     if( answerCount != 4 && chance == totalChance ){
       alert( "게임 종료! 모든 기회를 사용했어요" );
       end( answer , chance , totalChance , answerCount , score );

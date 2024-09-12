@@ -1,5 +1,6 @@
 package com.project1st.Control;
 
+import com.project1st.Constant.GameType;
 import com.project1st.DTO.MemberDto;
 import com.project1st.DTO.NumberDto;
 import com.project1st.Service.GameService;
@@ -29,21 +30,21 @@ public class GameControl {
 
   // EatAndSurvive 맵핑
   @GetMapping( "/EatAndSurvive" )
-  public String EatAndSurvive(){
+  public String eatAndSurvive(){
     return "game/EatAndSurvive";
   }
 
 
   // Blackjack 맵핑
   @GetMapping( "/BlackJack" )
-  public String BlackJack(){
+  public String blackJack(){
     return "game/BlackJack";
   }
 
 
   // Number 맵핑
   @GetMapping( "/Number" )
-  public String Number( Principal principal , Model model ){
+  public String number( Principal principal , Model model ){
     String userId = principal.getName();
     MemberDto memberDto = memberService.getMemberInfo(userId);  // MemberService 정보 조회
     model.addAttribute("member", memberDto);
@@ -52,9 +53,16 @@ public class GameControl {
 
   // Number 점수 보내기
   @PostMapping( "/Number/{gameScore}" )
-  public @ResponseBody ResponseEntity Number(@PathVariable("gameScore") Long score , Principal principal ){
-    gameService.scoreSave( score , principal.getName() );
+  public @ResponseBody ResponseEntity number(@PathVariable("gameScore") Long score , Principal principal ){
+    gameService.scoreSave( score , principal.getName() , GameType.NUMBER );
     return new ResponseEntity<Long>( score , HttpStatus.OK );
+  }
+
+  // EatAndSurvive 점수 보내기
+  @PostMapping( "/EatAndServive/{gameScore}" )
+  public  @ResponseBody ResponseEntity eatAndSurvive( @PathVariable("gameScore") Long score , Principal principal ){
+    gameService.scoreSave( score , principal.getName(), GameType.EATANDSURVIVE );
+    return  new ResponseEntity<Long>( score , HttpStatus.OK );
   }
 
 }

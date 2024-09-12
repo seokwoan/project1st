@@ -65,6 +65,31 @@ $(document).ready(function() {
         clearInterval(levelTimer);
         $gameOverScreen.show();
         gameStarted = false; // 게임 시작 플래그 false로 설정
+
+        var header = $("meta[name=_csrf_header]").attr("content");
+        var token = $("meta[name=_csrf]").attr("content");
+        var scoreText = $("#score").text();
+
+        var gameScore = parseInt( scoreText.substring( scoreText.indexOf( " " ) ) );
+        var url = "/game/EatAndServive/" + gameScore ;
+
+        $.ajax({
+            url : url,
+            type : "POST",
+            cache : false,
+            beforeSend : function(xhr){
+                xhr.setRequestHeader(header, token);
+            },
+            success : function(result , status){
+                alert("저장 성공");
+            },
+            error : function(jqXHR, status , error){
+                if(jqXHR.status == "200")
+                    alert("로그인후 이용해주세요");
+                else
+                    alert(jqXHR.responseText);
+            }
+        });
     }
 
     // 방향 제어 함수

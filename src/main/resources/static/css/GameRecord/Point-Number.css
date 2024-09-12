@@ -1,0 +1,30 @@
+#scoreTable{
+  position: relative;
+  top: 50px;
+  margin: 0 auto;
+  border: 2px solid white;
+  width: 500px;
+  height: 500px;
+}
+
+#scoreTable tr{
+  display : flex;
+  align-items : center;
+  justify-content : space-around;
+}
+
+#scoreTable td{
+  color: white;
+  font-weight : 700;
+  padding : 3px;
+}
+
+#scoreTable .score{
+  width : 50px
+  text-align : center;
+}
+
+#scoreTable .date{
+  width : 170px;
+  text-align : center;
+}
