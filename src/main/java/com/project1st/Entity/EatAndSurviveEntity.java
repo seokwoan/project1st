@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Setter
 @Table( name = "EatAndSurvive" )
 public class EatAndSurviveEntity extends PlayDate {
+  // 이름수정
 
   @Id
   @GeneratedValue( strategy = GenerationType.AUTO )

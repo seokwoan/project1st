@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class EatAndSurviveDto {
+  // 이름수정
 
   private Long id;
 
