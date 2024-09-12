@@ -5,7 +5,114 @@
     box-sizing: border-box;
 }
 
-h1
+#titleScreen {
+    position: relative;
+    top: 0;
+    margin: 0 auto;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+#titleScreen > h1
 {
+    text-align: center;
+    margin-top: 30px;
     color: white;
 }
+
+#titleScreen > #startButton
+{
+    margin-top: 30px;
+}
+
+#titleScreen > #startButton:hover
+{
+
+    cursor: pointer;
+    border-radius: 10px;
+    border: 3px solid chartreuse;
+}
+
+#gameContainer {
+    display: none;
+    position: relative;
+    top: 80px;
+    margin: 0 auto;
+    width: 600px;
+    height: 600px;
+    background-color: #325928;
+    border: 10px solid #6F4F28;
+    border-radius: 20px;
+    /*z-index: -1;*/
+}
+
+#gameBoard
+{
+    position: relative;
+    top: 10%;
+    margin: 0 auto;
+    /*z-index: -1;*/
+}
+
+table {
+    border-collapse: collapse;
+}
+td {
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    background-color: #d2b48c;;
+    /*#d2b48c; !* 연한 갈색 *!*/
+}
+
+.user {
+    background-color: black;
+    /*border: 1px solid black;*/
+}
+
+
+.wall {
+    background-color: black;
+}
+.com{
+    background-color: white;
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: black;
+    font-size: 20px;
+    z-index: 10;
+}
+
+
+#gameOverScreen {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 100;
+    position: relative;
+    top: -25%;
+}
+
+#restartButton:hover
+{
+    cursor: pointer;
+    border-radius: 10px;
+    border: 3px solid chartreuse;
+}
+
+#titleButton:hover
+{
+    cursor: pointer;
+    border-radius: 10px;
+    border: 3px solid chartreuse;
+}
+

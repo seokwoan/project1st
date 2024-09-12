@@ -5,21 +5,36 @@
 
   <meta charset="UTF-8">
 
-  <title layout:fragment="title">Title</title>
+  <title layout:fragment="title">Omok</title>
 
   <th:block layout:fragment="css">
     <link rel="stylesheet" href="/css/Game/omok.css"/>
   </th:block>
 
-  <th:block layout:fragment="script"></th:block>
+  <th:block layout:fragment="script">
+
+  </th:block>
 
 </head>
 
 <div layout:fragment="main" id="main">
 
-  <h1>오목</h1>
-
+  <div id="titleScreen">
+    <h1>Omok</h1>
+    <button id="startButton">게임 시작</button>
+  </div>
+  <div id="gameContainer">
+    <div id="score">점수: 0</div>
+    <table id="gameBoard"></table>
+    <div id="gameOverScreen">
+      <h1>게임 오버</h1>
+      <button id="restartButton">재시작</button>
+      <button id="titleButton">타이틀로 돌아가기</button>
+    </div>
+  </div>
 
 </div>
 
 </html>
+
+<script src="/js/Game/omok.js"></script>

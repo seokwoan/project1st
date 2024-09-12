@@ -52,7 +52,7 @@ $(document).ready(function() {
         $gameContainer.show();
         $gameOverScreen.hide();
 
-        $(document).on("keydown", directionControl);  // 방향키 이벤트 리스너 추가
+        $(document).off("keydown").on("keydown", directionControl); // 기존 핸들러 제거 후 새로 추가
 
         game = setInterval(draw, speed);  // 게임 로직 실행
         levelTimer = setInterval(updateLevel, 1000);  // 매 1초마다 타이머 업데이트
@@ -260,11 +260,14 @@ $(document).ready(function() {
 
     // 게임 재시작 버튼 클릭 이벤트 핸들러
     $restartButton.click(function() {
+        console.log('Restart button clicked');
         startGame();
+        $gameOverScreen.hide();
     });
 
     // 타이틀로 돌아가기 버튼 클릭 이벤트 핸들러
     $titleButton.click(function() {
+        console.log('Title button clicked');
         $gameOverScreen.hide();
         $gameContainer.hide();
         $titleScreen.show();
