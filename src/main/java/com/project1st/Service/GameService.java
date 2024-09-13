@@ -1,11 +1,8 @@
 package com.project1st.Service;
 
 import com.project1st.Constant.GameType;
-import com.project1st.DTO.NumberDto;
 import com.project1st.Entity.EatAndSurviveEntity;
-import com.project1st.Entity.MemberEntity;
 import com.project1st.Entity.NumberEntity;
-import com.project1st.Entity.OmokEntity;
 import com.project1st.Repository.EatAndSurviveRepository;
 import com.project1st.Repository.MemberRepository;
 import com.project1st.Repository.NumberRepository;

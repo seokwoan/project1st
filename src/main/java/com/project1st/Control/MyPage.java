@@ -6,14 +6,12 @@ import com.project1st.DTO.NumberDto;
 import com.project1st.Service.MemberService;
 import com.project1st.Service.MyPageService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -48,7 +46,7 @@ public class MyPage {
     // 게임전적 오목페이지 요청
     @GetMapping("/Point-Omok")
     public String PointOmok(Model model) {
-        return "/MyPage/GameRecord/Point-Omok";
+        return "Point-Bombvoid";
     }
 
     // 게임전적 블랙잭 요청

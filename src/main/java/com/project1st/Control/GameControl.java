@@ -2,7 +2,6 @@ package com.project1st.Control;
 
 import com.project1st.Constant.GameType;
 import com.project1st.DTO.MemberDto;
-import com.project1st.DTO.NumberDto;
 import com.project1st.Service.GameService;
 import com.project1st.Service.MemberService;
 import lombok.RequiredArgsConstructor;
@@ -22,10 +21,10 @@ public class GameControl {
   private final MemberService memberService; // Principal 에서 가져온 아이디를 저장하기 위해 MemberService 객체 생성
   private final GameService gameService; // 게임 정보 저장을 위한 service
 
-  // Omok 맵핑
-  @GetMapping( "/omok" )
-  public String omok(){
-    return "game/omok";
+  // Bombvoid 맵핑
+  @GetMapping( "/Bombvoid" )
+  public String Bombvoid(){
+    return "game/Bombvoid";
   }
 
   // EatAndSurvive 맵핑

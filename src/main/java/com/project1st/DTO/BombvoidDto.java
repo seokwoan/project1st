@@ -1,7 +1,7 @@
 package com.project1st.DTO;
 
 import com.project1st.Constant.GameType;
-import com.project1st.Entity.OmokEntity;
+import com.project1st.Entity.BombvoidEntity;
 import lombok.Getter;
 import lombok.Setter;
 import org.modelmapper.ModelMapper;
@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class OmokDto {
+public class BombvoidDto {
 
   private Long id;
 
@@ -26,11 +26,11 @@ public class OmokDto {
 
   private static ModelMapper mapper = new ModelMapper();
 
-  public OmokEntity createEntity(){
-    return mapper.map( this , OmokEntity.class );
+  public BombvoidEntity createEntity(){
+    return mapper.map( this , BombvoidEntity.class );
   }
 
-  public static OmokDto of( OmokEntity omokEntity ){
-    return mapper.map( omokEntity , OmokDto.class );
+  public static BombvoidDto of(BombvoidEntity bombvoidEntity){
+    return mapper.map(bombvoidEntity, BombvoidDto.class );
   }
 }

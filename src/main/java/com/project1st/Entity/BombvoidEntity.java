@@ -3,20 +3,18 @@ package com.project1st.Entity;
 import com.project1st.Constant.GameType;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @Setter
-@Table( name = "omok" )
-public class OmokEntity extends PlayDate {
+@Table( name = "Bombvoid" )
+public class BombvoidEntity extends PlayDate {
 
   @Id
   @GeneratedValue( strategy = GenerationType.AUTO )
-  @Column( name = "omok_id" )
+  @Column( name = "Bombvoid_id" )
   private Long id;
 
   private Long win;
