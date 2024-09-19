@@ -24,7 +24,7 @@
       <tr>
         <td class="score">점수</td>
         <td class="date">플레이 날짜</td>
-      </th>
+      </tr>
       <tr th:each="scoreHistory : ${history}">
         <td class="score" th:text="${scoreHistory.score}"></td>
         <td class="date" th:text="${scoreHistory.date}"></td>

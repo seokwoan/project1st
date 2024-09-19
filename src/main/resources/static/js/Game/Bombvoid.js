@@ -120,6 +120,30 @@ $(document).ready(function () {
             $gameOverScreen.find('h1').text('폭탄이 터졌습니다. 당신은 사망하였습니다.');
 
         }
+        var header = $("meta[name=_csrf_header]").attr("content");
+        var token = $("meta[name=_csrf]").attr("content");
+        var scoreText = $("#score").text();
+
+        var gameScore = parseInt( scoreText.substring( scoreText.indexOf( " " ) ) );
+        var url = "/game/Bombvoid/" + gameScore ;
+
+        $.ajax({
+          url : url,
+          type : "POST",
+          cache : false,
+          beforeSend : function(xhr){
+            xhr.setRequestHeader(header, token);
+          },
+          success : function(result , status){
+            alert("저장 성공");
+          },
+          error : function(jqXHR, status , error){
+            if(jqXHR.status == "200")
+              alert("로그인후 이용해주세요");
+            else
+              alert(jqXHR.responseText);
+          }
+        });
     }
 
     function resetGame() {

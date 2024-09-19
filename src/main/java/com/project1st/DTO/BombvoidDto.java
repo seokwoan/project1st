@@ -14,9 +14,7 @@ public class BombvoidDto {
 
   private Long id;
 
-  private Long win;
-
-  private Long lose;
+  private Long score;
 
   private String nickName;
 

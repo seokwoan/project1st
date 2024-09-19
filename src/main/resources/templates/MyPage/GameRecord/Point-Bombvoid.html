@@ -8,11 +8,13 @@
 <head>
 
   <meta charset="UTF-8">
+  <meta name="_csrf" th:content="${_csrf.token}" />
+  <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
 
   <title layout:fragment="title">Title</title>
 
   <th:block layout:fragment="css">
-
+    <link rel="stylesheet" href="/css/GameRecord/Point-Number.css">
   </th:block>
 
   <th:block layout:fragment="script"></th:block>
@@ -20,6 +22,20 @@
 </head>
 
 <div layout:fragment="main" id="main">
+
+  <div id="scoreWrap">
+    <table id="scoreTable">
+      <tr>
+        <td class="score">점수</td>
+        <td class="date">플레이 날짜</td>
+      </tr>
+      <tr th:each="scoreHistory : ${history}">
+        <td class="score" th:text="${scoreHistory.score}"></td>
+        <td class="date" th:text="${scoreHistory.date}"></td>
+      </tr>
+    </table>
+
+  </div>
 
 </div>
 

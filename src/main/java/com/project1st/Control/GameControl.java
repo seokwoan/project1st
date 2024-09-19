@@ -35,7 +35,7 @@ public class GameControl {
 
 
   // Blackjack 맵핑
-  @GetMapping( "/Remember" )
+  @GetMapping( "/remember" )
   public String blackJack(){
     return "game/remember";
   }
@@ -62,6 +62,20 @@ public class GameControl {
   public  @ResponseBody ResponseEntity eatAndSurvive( @PathVariable("gameScore") Long score , Principal principal ){
     gameService.scoreSave( score , principal.getName(), GameType.EATANDSURVIVE );
     return  new ResponseEntity<Long>( score , HttpStatus.OK );
+  }
+
+  // remember 점수 보내기
+  @PostMapping( "/remember/{gameScore}" )
+  public @ResponseBody ResponseEntity remember(@PathVariable("gameScore") Long score , Principal principal ){
+    gameService.scoreSave( score , principal.getName() , GameType.REMEMBER );
+    return new ResponseEntity<Long>( score , HttpStatus.OK );
+  }
+
+  // Bombvoid 점수 보내기
+  @PostMapping( "/Bombvoid/{gameScore}" )
+  public @ResponseBody ResponseEntity bombvoid(@PathVariable("gameScore") Long score , Principal principal ){
+    gameService.scoreSave( score , principal.getName() , GameType.BOMBVOID );
+    return new ResponseEntity<Long>( score , HttpStatus.OK );
   }
 
 }

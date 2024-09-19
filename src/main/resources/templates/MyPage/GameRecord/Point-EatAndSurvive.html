@@ -10,7 +10,7 @@
     <title layout:fragment="title">Title</title>
 
     <th:block layout:fragment="css">
-        <link rel="stylesheet" href="/css/GameRecord/Point-Hit.css">
+        <link rel="stylesheet" href="/css/GameRecord/Point-Number.css">
     </th:block>
 
     <th:block layout:fragment="script"></th:block>
@@ -19,8 +19,18 @@
 
 <div layout:fragment="main" id="main">
 
-    <div id="point-Box">
-        <h2 class="title"> EatAndSurvive 점수</h2>
+    <div id="scoreWrap">
+        <table id="scoreTable">
+            <tr>
+                <td class="score">점수</td>
+                <td class="date">플레이 날짜</td>
+            </tr>
+            <tr th:each="scoreHistory : ${history}">
+                <td class="score" th:text="${scoreHistory.score}"></td>
+                <td class="date" th:text="${scoreHistory.date}"></td>
+            </tr>
+        </table>
+
     </div>
 
 

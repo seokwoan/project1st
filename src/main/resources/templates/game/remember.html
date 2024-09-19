@@ -19,14 +19,16 @@
 </head>
 
 <div layout:fragment="main" id="main">
-  <script src="./js/Game/remember.js"></script>
+  <script src="/js/Game/remember.js"></script>
 
   <div id="gameWrap">
     <div id="gameInfo">
       <h2>게임설명!</h2>
 
       <div class="infoBox">
-        <p>설명</p>
+        <p>1. 박스의 색이 순서대로 변경</p>
+        <p>2. 변경 순서 기억</p>
+        <p>3. 시작하면 순서에 맞게 클릭</p>
       </div>
 
     </div>
@@ -43,6 +45,9 @@
           <div class="selectBox background" data-index="6"></div>
           <div class="selectBox background" data-index="7"></div>
           <div class="selectBox background" data-index="8"></div>
+        </div>
+        <div id="startBox">
+          <button id="startBoxButton">게임시작</button>
         </div>
       </div>
     </div>

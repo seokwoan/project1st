@@ -1,7 +1,9 @@
 $(function(){
 
-  $("#startButton").on( 'click' , function(){
-    gameStart( );
+  $("#startBoxButton").on( 'click' , function(){
+    gameStart();
+    $("#startButton").show();
+    $("#startBox").hide();
   });
 
 });
@@ -44,6 +46,7 @@ function gameStart(){
 
   // selectBox 클릭이벤트 추가 -> 순서를 다 보여주고 나서 클릭이벤트 추가
   setTimeout( function(){
+    var isClear = false;
     for( var i = 0 ; i < 9 ; i++ ){
       $(".selectBox").eq(i).on( 'click' , function(){
         $(this).removeClass( "background" );
@@ -53,8 +56,8 @@ function gameStart(){
         $(this).off( 'click' ); // 누른 박스 클릭이벤트 제거
 
         if( selectNum != answer[clickCount] ){
-          alert( "실패" );
-          end();
+          isClear = false;
+          end( isClear );
         }
         else{
           clickCount++;
@@ -62,9 +65,9 @@ function gameStart(){
           $("#score").text( score );
 
           if( clickCount == 9 ){
-            alert( "게임 클리어" );
             $("#score").text( score );
-            end();
+            isClear = true;
+            end( isClear );
           }
         }
       });
@@ -76,7 +79,38 @@ function gameStart(){
 
 
 
-function end(){
+function end( isClear ){
+  // 클리어 유무
+  if( isClear ){
+    alert( "게임 클리어" );
+  }
+  else{
+    alert( "실패" );
+  }
+
+  var header = $("meta[name=_csrf_header]").attr("content");
+    var token = $("meta[name=_csrf]").attr("content");
+    var gameScore = parseInt( $("#score").text() );
+    var url = "/game/remember/" + gameScore ;
+
+    $.ajax({
+        url : url,
+        type : "POST",
+        cache : false,
+        beforeSend : function(xhr){
+            xhr.setRequestHeader(header, token);
+        },
+        success : function(result , status){
+            alert("저장 성공");
+        },
+        error : function(jqXHR, status , error){
+            if(jqXHR.status == "200")
+                alert("로그인후 이용해주세요");
+            else
+                alert(jqXHR.responseText);
+        }
+    });
+
   // 시작버튼 활성화
   $("#startButton").on( 'click' , function(){
     gameStart();

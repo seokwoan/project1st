@@ -14,9 +14,7 @@ public class RememberDto {
 
   private Long id;
 
-  private Long win;
-
-  private Long lose;
+  private Long score;
 
   private String nickName;
 

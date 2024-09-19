@@ -17,9 +17,7 @@ public class BombvoidEntity extends PlayDate {
   @Column( name = "Bombvoid_id" )
   private Long id;
 
-  private Long win;
-
-  private Long lose;
+  private Long score;
 
   @ManyToOne
   @JoinColumn( name = "member_id" )

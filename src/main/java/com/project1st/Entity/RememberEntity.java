@@ -9,17 +9,15 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@Table( name = "blackjack")
+@Table( name = "remember")
 public class RememberEntity extends PlayDate {
 
   @Id
   @GeneratedValue( strategy = GenerationType.AUTO )
-  @Column( name = "blackjack_id" )
+  @Column( name = "remember_id" )
   private Long id;
 
-  private Long win;
-
-  private Long lose;
+  private Long score;
 
   @ManyToOne
   @JoinColumn( name = "member_id" )
