@@ -1,7 +1,7 @@
 package com.project1st.DTO;
 
 import com.project1st.Constant.GameType;
-import com.project1st.Entity.BlackJackEntity;
+import com.project1st.Entity.RememberEntity;
 import lombok.Getter;
 import lombok.Setter;
 import org.modelmapper.ModelMapper;
@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class BlackJackDto {
+public class RememberDto {
 
   private Long id;
 
@@ -26,12 +26,12 @@ public class BlackJackDto {
 
   private static ModelMapper mapper = new ModelMapper();
 
-  public BlackJackEntity createEntity(){
-    return mapper.map( this , BlackJackEntity.class );
+  public RememberEntity createEntity(){
+    return mapper.map( this , RememberEntity.class );
   }
 
-  public static BlackJackDto of( BlackJackEntity blackJackEntity ){
-    return mapper.map( blackJackEntity , BlackJackDto.class );
+  public static RememberDto of(RememberEntity blackJackEntity ){
+    return mapper.map( blackJackEntity , RememberDto.class );
   }
 
 

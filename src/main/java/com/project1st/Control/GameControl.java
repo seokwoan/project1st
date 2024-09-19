@@ -35,9 +35,9 @@ public class GameControl {
 
 
   // Blackjack 맵핑
-  @GetMapping( "/BlackJack" )
+  @GetMapping( "/Remember" )
   public String blackJack(){
-    return "game/BlackJack";
+    return "game/remember";
   }
 
 

@@ -4,19 +4,22 @@
 <head>
 
   <meta charset="UTF-8">
+  <meta name="_csrf" th:content="${_csrf.token}" />
+  <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
 
   <title layout:fragment="title">Title</title>
 
   <th:block layout:fragment="css">
-    <link rel="stylesheet" href="/css/Game/BlackJack.css"/>
+    <link rel="stylesheet" href="/css/Game/remember.css">
   </th:block>
 
-  <th:block layout:fragment="script"></th:block>
+  <th:block layout:fragment="script">
+  </th:block>
 
 </head>
 
 <div layout:fragment="main" id="main">
-  <script src="/js/Game/remember.js"></script>
+  <script src="./js/Game/remember.js"></script>
 
   <div id="gameWrap">
     <div id="gameInfo">
@@ -31,15 +34,15 @@
     <div id="gameBox">
       <div id="gameField">
         <div id="selectArea">
-          <div class="selectBox"></div>
-          <div class="selectBox"></div>
-          <div class="selectBox"></div>
-          <div class="selectBox"></div>
-          <div class="selectBox"></div>
-          <div class="selectBox"></div>
-          <div class="selectBox"></div>
-          <div class="selectBox"></div>
-          <div class="selectBox"></div>
+          <div class="selectBox background" data-index="0"></div>
+          <div class="selectBox background" data-index="1"></div>
+          <div class="selectBox background" data-index="2"></div>
+          <div class="selectBox background" data-index="3"></div>
+          <div class="selectBox background" data-index="4"></div>
+          <div class="selectBox background" data-index="5"></div>
+          <div class="selectBox background" data-index="6"></div>
+          <div class="selectBox background" data-index="7"></div>
+          <div class="selectBox background" data-index="8"></div>
         </div>
       </div>
     </div>

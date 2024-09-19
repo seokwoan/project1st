@@ -11,7 +11,14 @@ $(function(){
     this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
   });
 
-  // 게임시작 버튼 클릭하면 게임시작 함수 호출
+  // 게임시작버튼 누르면 게임시작 함수 호출, 게임재시작버튼 활성화
+  $("#startBoxButton").on( 'click' , function(){
+    gameStart( answer , chance , totalChance , answerCount , score );
+    $("#startButton").show();
+    $("#startBox").hide();
+  });
+
+  // 게임재시작 버튼 클릭하면 게임시작 함수 호출
   $("#startButton").on( 'click' , function(){
     gameStart( answer , chance , totalChance , answerCount , score );
   });

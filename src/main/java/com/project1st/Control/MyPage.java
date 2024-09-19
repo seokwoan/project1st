@@ -50,7 +50,7 @@ public class MyPage {
     }
 
     // 게임전적 블랙잭 요청
-    @GetMapping("/Point-BlackJack")
+    @GetMapping("/Point-Remember")
     public String PointBlackJack(Model model) {
         return "/MyPage/GameRecord/Point-BlackJack";
     }

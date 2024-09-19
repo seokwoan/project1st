@@ -3,7 +3,7 @@
   display : flex;
   justify-content : space-around;
   margin : 30px auto;
-  height : 900px;
+  height : 750px;
   position : relative;
   z-index : 100;
 }
@@ -36,56 +36,38 @@
   border : none;
   border-radius : 20px;
   overflow : hidden;
-  position : relative;
 }
 
 #gameBox #gameField{
   margin : 0 auto;
   width : 100%;
   height : 100%;
+  position : relative;
 }
 
-#gameBox #gameField .inputBox{
-  display : flex;
-  justify-content : space-around;
-  align-items : center;
-  padding : 15px;
-}
-
-#gameBox #gameField .inputBox .num{
-  width : 80px;
-  height : 80px;
-  border : 1px solid #aaa;
-  border-radius : 20px;
-  text-align : center;
-  font-size : 30px;
-}
-
-#gameBox #gameField .inputBox #answerButton{
-  width : 80px;
-  height : 80px;
-  border : 1px solid #aaa;
-  border-radius : 20px;
-  text-align : center;
-  font-size : 15px;
-}
-
-#gameBox #gameField .resultField{
-  display : flex;
-  justify-content : space-around;
-  align-items : center;
-  padding : 15px;
-}
-
-#gameBox #startBox{
+#gameBox #gameField #selectArea{
+  width : 70%;
+  aspect-ratio: auto 1/1;
+  background : yellow;
+  border-radius : 15px;
   position : absolute;
-  top : 0;
-  left : 0;
-  z-index : 150;
-  background : gray;
-  opacity : 0.8;
-  width : 100%;
-  height : 100%;
+  top : 15%;
+  left : 15%;
+  padding : 5px;
+  transform : translate( -50% , -50% )
+  overflow : hidden;
+  display : flex;
+  flex-wrap : wrap;
+  justify-content : space-around;
+  align-items : center;
+}
+
+#gameBox #gameField #selectArea .selectBox{
+  width : 28%;
+  aspect-ratio: auto 1/1;
+  background: radial-gradient(#ff32b1, #802121);
+  box-shadow: 5px 5px 10px 5px rgb(77, 71, 71);
+  cursor : pointer;
 }
 
 #gameScore{
@@ -117,18 +99,6 @@
   color : white;
 }
 
-#gameBox #startBox #startBoxButton{
-  width : 60%;
-  height : 80px;
-  text-align : center;
-  font-size : 50px;
-  border-radius : 10px;
-  position : absolute;
-  top : 120px;
-  left : 20%;
-  transform: translateY( -50% );
-}
-
 #startButton{
   width : 50%;
   height : 35px;
@@ -136,9 +106,7 @@
   font-size : 20px;
   border-radius : 10px;
   margin-left : 63px;
-  display : none;
 }
-
 
 #gameBox #gameField .resultField .correctNum{
   width : 80px;
@@ -149,33 +117,4 @@
   font-size : 30px;
   background : blue;
   line-height : 75px;
-}
-
-#gameBox #gameField .resultField .nearNum{
-  width : 80px;
-  height : 80px;
-  border : 1px solid #aaa;
-  border-radius : 20px;
-  text-align : center;
-  font-size : 30px;
-  background : green;
-  line-height : 75px;
-}
-
-#gameBox #gameField .resultField .noNum{
-  width : 80px;
-  height : 80px;
-  border : 1px solid #aaa;
-  border-radius : 20px;
-  text-align : center;
-  font-size : 30px;
-  background : red;
-  line-height : 75px;
-}
-
-.emptyBox{
-  width : 80px;
-  height : 80px;
-  text-align : center;
-  font-size : 30px;
 }
