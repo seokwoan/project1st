@@ -1,35 +1,39 @@
-프론트엔드 - 
-	홈페이지 켜서 게임사이트 만들었다 
-	4개의 게임을 만들었고 게임플레이 하려면 로그인해야함
-	각 게임은 어떤식으로 플레이한다 한번씩 플레이 보여주고
-	게임 하나씩 html, css, js에서 설명할 내용 설명( css는 디자인, js는 어떤 함수?)
-	마이페이지에서는 플레이기록 볼 수 있음
-	보여주기 위해서 th:each사용
+// 게임 점수 저장
+게임에서 end함수 호출 -> ajax를 통해 데이터를 보내줌( 주소의 parameter를 통해 )
 
-	백엔드 - 
-	프론트엔드 설명 끝나고
+ -> 데이터를 저장하기 위한 Dto와 데이터베이스로 전달하기 위한 Entity가 필요
+Dto를 만들어주고 ModelMapper를 통해 Dto <-> Entity 변경메소드를 만듬
 
-	th:fragment, replace를 사용해 페이지 레이아웃을 생성해 사용
-	
-	데이터베이스 저장을 위해 Dto, Entity, Repository 생성
-	Dto - 
-	memberDto는 passwordEncoder를 통해 비밀번호 암호화
-	게임Dto는 점수, 게임타입, 플레이 날짜를 변수로 갖고 ModelMapper로
-	dto <-> entity 변경
+Entity는 MemberEntity의 id를 연결해 점수를 세운 플레이어를 기록
+Auditing 기능을 가진 PlayDate를 상속해 점수를 달성한 시간 기록
+	-> AuditingEntity가 작동하기 위해서는 AuditingAware를가 필요
+	-> AuditConfig를 통해 AuditingAware 동작
 
-	Entity - 
-	JoinColumn을 통해 member_id를 공유함
-	플레이 시간을 저장하기 위해 PlayDate를 상속
-	playDate가 기능을 하기위해
-	AuditConfig를 통해 옵저버패턴 사용 
 
-	Repository - 
-	이름 규칙을 통해 JoinColumn인 member_id를 검색하고 시간을 기준으로 
-	내림차순 정렬( 마이페이지 )
-	findByMemberEntity_IdOrderByDateDesc
-	joinColumn 변수명인 memberEntity에서 id가 같은걸 가져오고
-	Date를 기준으로 Desc 내림차순 정렬
-	
-	Enum -
-	repository에서 게임으로 검색하려 했으나 각 게임의 데이터베이스를 따로 
-	사용 따로 사용하지 않음
+gameControl에서 ajax에서 보내온 데이터를 받아줌( @PathVariable을 통해 파라미터값 받음)
+-> gameService의 scoreSave실행 
+-> joinColumn인 member_id, 점수 , 게임타입, 시간 저장
+
+
+
+// 게임 점수 불러오기
+MyPage( controller ) 에서 게임전적을 불러옴
+-> myPageService에서 getHistory 메소드 실행
+-> 로그인한 아이디를 통해 member_id를 가져옴
+-> 게임의 repository에 jpa이름 규칙을 통해 로그인한 user의 게임전적을 시간순으로 불러옴( List<Entity>저장 )
+-> List에 저장된 Entity를 Dto로 변경해 DtoList에 저장
+-> 저장한 DtoList를 return
+-> MyPage( controller )에서 반환된 DtoList를 model을 통해 thymeleaf에 전달
+-> GameRecord를 표시할 html 파일에서 th:each를 통해 기록 보여줌
+
+
+// 프로젝트 진행 순서
+
+1. th:fragment를 통해 레이아웃 작성
+2. css 작성
+3. 데이터저장을 위한 Dto , 데이터베이스 저장, 접속을 위한 Entity, repository작성
+4. 회원가입 및 로그인 기능 만들기
+5. 게임 만들기( 1개 우선)
+6. 만든 게임의 점수 데이터 베이스 저장을 위한 작업( mapping, ajax 등)
+7. 데이터베이스에 점수 저장 성공하면 게임 3개 더 만들기
+8. 4개의 게임 전부 문제 없으면 게임기록 불러오는 작업
