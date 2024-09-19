@@ -78,7 +78,7 @@ td {
 }
 .Bomb{
     z-index: 10;
-    background-color: red;
+    background-color: #d2b48c;
 }
 
 #score {
@@ -92,15 +92,17 @@ td {
 
 
 #gameOverScreen {
+    height: 420px;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     display: flex;
+    flex-direction: column;
+    align-content: space-between;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     z-index: 100;
     position: relative;
-    top: -25%;
+    top: -60%;
 }
 
 #restartButton:hover

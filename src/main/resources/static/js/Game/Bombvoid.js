@@ -30,6 +30,7 @@ $(document).ready(function () {
                         plant_A_Bomb();  // 유저가 움직일 때마다 폭탄을 설치
                         if (check_Touch_Bomb($(this))) {  // 폭탄 클릭 확인
                             console.log('폭탄 클릭됨!');  // 폭탄 클릭 여부 로그
+                            bombsChangeColor();
                             endGame('user'); // 게임 오버
                         }
                     }
@@ -95,6 +96,12 @@ $(document).ready(function () {
         console.log('폭탄 설치 완료: ', x, y); // 폭탄 설치 로그
     }
 
+    function bombsChangeColor() {
+        $("#gameBoard td.Bomb").each(function (){
+            $(this).css('background-color', 'darkred');
+        })
+    }
+
     // 폭탄이 있는지 확인하는 함수
     function check_Touch_Bomb($cell) {
         if ($cell.hasClass('Bomb')) {
@@ -108,6 +115,7 @@ $(document).ready(function () {
         console.log('함정카드 발동');
         $gameOverScreen.show();
         gameStarted = false;
+
         if (gameOver === 'user') {
             $gameOverScreen.find('h1').text('폭탄이 터졌습니다. 당신은 사망하였습니다.');
 
