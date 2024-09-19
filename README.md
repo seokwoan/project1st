@@ -4,9 +4,9 @@
  -> 데이터를 저장하기 위한 Dto와 데이터베이스로 전달하기 위한 Entity가 필요
 Dto를 만들어주고 ModelMapper를 통해 Dto <-> Entity 변경메소드를 만듬
 
-Entity는 MemberEntity의 id를 연결해 점수를 세운 플레이어를 기록
+게임Entity는 MemberEntity의 id를 연결해 점수를 세운 플레이어를 기록
 Auditing 기능을 가진 PlayDate를 상속해 점수를 달성한 시간 기록
-	-> AuditingEntity가 작동하기 위해서는 AuditingAware를가 필요
+	-> AuditingEntity가 작동하기 위해서는 AuditingAware가 필요
 	-> AuditConfig를 통해 AuditingAware 동작
 
 
