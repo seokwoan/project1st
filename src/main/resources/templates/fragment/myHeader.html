@@ -14,6 +14,10 @@
               <a href="/MyPage/MyPage"><i class="bi bi-person-square"></i></a>
           </div>
 
+          <div class="logoutBox" sec:authorize="isAuthenticated()">
+              <a href="/member/logout"><i class="bi bi-door-closed"></i></a>
+          </div>
+
       </div>
 
       <ul class="navbar-menu">
