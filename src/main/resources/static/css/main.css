@@ -31,7 +31,8 @@
 
 .contents-box .game
 {
-    border: solid 4px white;
+    border: solid 4px #CC0000;
+    border-radius: 10px;
 }
 
 .game >a >img

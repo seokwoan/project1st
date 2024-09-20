@@ -2,7 +2,7 @@
   position: relative;
   top: 50px;
   margin: 0 auto;
-  border: 2px solid white;
+  border: 4px solid #CC0000;
   width: 500px;
   height: 500px;
 }
@@ -14,13 +14,13 @@
 }
 
 #scoreTable td{
-  color: white;
+  color: black;
   font-weight : 700;
   padding : 3px;
 }
 
 #scoreTable .score{
-  width : 50px
+  width : 50px;
   text-align : center;
 }
 

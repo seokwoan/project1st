@@ -16,8 +16,6 @@ public class BombvoidDto {
 
   private Long score;
 
-  private String nickName;
-
   private GameType gameType;
 
   private LocalDateTime date;

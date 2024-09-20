@@ -71,7 +71,7 @@ $(document).ready(function() {
         var scoreText = $("#score").text();
 
         var gameScore = parseInt( scoreText.substring( scoreText.indexOf( " " ) ) );
-        var url = "/game/EatAndServive/" + gameScore ;
+        var url = "/game/EatAndServive/" + gameScore ; // 파라미터 사용
 
         $.ajax({
             url : url,

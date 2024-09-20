@@ -7,7 +7,7 @@
 
 body
 {
-    background-color: black;
+    background-color: #FFF1C1;
 }
 
 ul{ list-style: none}
@@ -15,12 +15,20 @@ ul{ list-style: none}
 #header >.title
 {
     pointer-events: auto;
+    color: black;
 }
+
+#header >.title:hover{
+
+    border-bottom:4px solid #CC0000;
+}
+
 
 a
 {
     text-decoration: none;
-    color: white;
+    color: black;
+    font-weight: 800;
 }
 
 
@@ -52,8 +60,8 @@ a
     display : flex;
     align-items : center;
     margin-top: 40px;
-    border-top: solid 2px white;
-    border-bottom: solid 2px white;
+    border-top: solid 3px #CC0000;
+    border-bottom: solid 3px #CC0000;
 
 }
 
@@ -71,6 +79,14 @@ a
     position: absolute;
     top: 10%;
     right: 10%;
+}
+
+.signInBox:hover{
+    border-bottom:3px solid #CC0000;
+}
+
+.myPage:hover{
+    border-bottom:3px solid #CC0000;
 }
 
 .navbar-menu

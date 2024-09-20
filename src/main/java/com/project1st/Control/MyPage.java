@@ -43,7 +43,7 @@ public class MyPage {
 
 
 
-  // 게임전적 오목페이지 요청
+  // 게임전적 Bombvoid페이지 요청
   @GetMapping("/Point-Bombvoid")
   public String PointBomb(Model model , Principal principal ) {
     List<BombvoidDto> bombvoidDtoList = myPageService.getBombHistory( principal.getName() );

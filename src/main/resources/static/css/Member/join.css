@@ -29,7 +29,7 @@
     font-size:17px;
     padding:7px 15px;
     border:0;
-    border-bottom:1px solid #aaa;
+    border-bottom:3px solid #CC0000;
 }
 #joinForm .inputField input:not(:placeholder-shown){
     border-color:black;
@@ -49,15 +49,21 @@
     cursor:pointer;
 }
 #joinForm #btn-join{
-    background:chartreuse;
+    background: #FFF1C1;
     color:black;
     font-weight: bold;
-    border:0;
+    border:2px solid #CC0000;
     border-radius:50px;
     width:100%;
     padding:15px 0;
     font-size:20px;
 }
+
+#joinForm #btn-join:hover{
+    cursor: pointer;
+    border:8px solid#CC0000;
+}
+
 #joinForm .joinBt{
     margin-top:50px;
 }
@@ -68,5 +74,6 @@
 
 label
 {
-    color: chartreuse;
+    color: black;
+    font-weight: 800;
 }

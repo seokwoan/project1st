@@ -15,19 +15,23 @@
 
 h1
 {
-    color: white;
+    color: black;
     font-size: 24px;
 }
 
 h4
 {
-    color: white;
+    color: black;
 }
 
 .menu
 {
     font-size: 20px;
     margin-top: 30px;
+}
+
+.member a:hover{
+    border-bottom:3px solid #CC0000;
 }
 
 .gameList
@@ -42,6 +46,6 @@ h4
 
 .gameList .game a:hover
 {
-    color: chartreuse;
+    border-bottom:3px solid #CC0000;
 }
 
