@@ -31,8 +31,14 @@
 
 .contents-box .game
 {
-    border: solid 4px #CC0000;
+    border: solid 6px #CC0000;
     border-radius: 10px;
+}
+
+.contents-box .game:hover{
+    border: 8px #CC0000;
+    border-style: dashed solid;
+
 }
 
 .game >a >img
