@@ -69,13 +69,13 @@ td {
 }
 
 .snake {
-    background-color: black;
-    border: 1px solid black;
-    border-radius: 10px;
+    background-color: chartreuse;
+    border: 1px solid chartreuse;
+    border-radius: 5px;
 }
 .apple {
-    background-color: #FAE477;
-    border: 1px solid #9F7D4B;
+    background-color: red;
+    border: 1px solid darkred;
 }
 .obstacle {
     background-color: darkred;
